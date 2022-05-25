@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import "./App.css";
 import AddTool from "./Pages/Dashboard/AddTool";
 import Home from "./Pages/Home/Home";
@@ -17,6 +18,7 @@ function App() {
         <Route path="" element={}></Route> */}
       </Routes>
       <Footer></Footer>
+      <ToastContainer></ToastContainer>
     </div>
   );
 }

@@ -1,14 +1,61 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import { toast, ToastContainer } from "react-toastify";
 
 const AddTool = () => {
   const {
     register,
     formState: { errors },
     handleSubmit,
+    reset,
   } = useForm();
+
+  const imageStorageKey = "234c5059422b0963f713cb9c92296a31";
+
   const onSubmit = async (data) => {
+    const image = data.image[0];
+    const formData = new FormData();
+    formData.append("image", image);
+    const url = `https://api.imgbb.com/1/upload?key=${imageStorageKey}`;
     console.log("data", data);
+
+    fetch(url, {
+      method: "POST",
+      body: formData,
+    })
+      .then((res) => res.json())
+      .then((result) => {
+        // console.log(result);
+        if (result.success) {
+          const img = result.data.url;
+          const item = {
+            name: data.name,
+            price: data.price,
+            minOrder: data.minOrder,
+            quantity: data.quantity,
+            description: data.description,
+            img: img,
+          };
+          // send to your database
+          fetch("http://localhost:5000/tools", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json",
+              //   authorization: `Bearer ${localStorage.getItem("accessToken")}`,
+            },
+            body: JSON.stringify(item),
+          })
+            .then((res) => res.json())
+            .then((inserted) => {
+              if (inserted.insertedId) {
+                toast("item added successfully");
+                reset();
+              } else {
+                toast.error("Failed to add the item");
+              }
+            });
+        }
+      });
   };
 
   return (
@@ -19,7 +66,7 @@ const AddTool = () => {
         <div className="form-control w-full max-w-xs mx-auto">
           <input
             type="text"
-            placeholder="Item Name"
+            placeholder="Item's Name"
             className="input input-bordered max-w-xs"
             {...register("name", {
               required: {
