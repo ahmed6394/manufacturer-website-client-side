@@ -5,38 +5,16 @@ import banner3 from "../../images/banner3.jpg";
 
 const Banner = () => {
   return (
-    <div class="carousel carousel-center rounded-box mx-auto max-w-4xl">
-      <div id="slide1" class="carousel-item relative w-full">
-        <img src={banner1} alt="" class="w-full" />
-        <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-          <a href="#slide4" class="btn btn-circle">
-            ❮
-          </a>
-          <a href="#slide2" class="btn btn-circle">
-            ❯
-          </a>
-        </div>
-      </div>
-      <div id="slide2" class="carousel-item relative w-full">
-        <img src={banner2} alt="" class="w-full" />
-        <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-          <a href="#slide1" class="btn btn-circle">
-            ❮
-          </a>
-          <a href="#slide3" class="btn btn-circle">
-            ❯
-          </a>
-        </div>
-      </div>
-      <div id="slide4" class="carousel-item relative w-full">
-        <img src={banner3} alt="" class="w-full" />
-        <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-          <a href="#slide3" class="btn btn-circle">
-            ❮
-          </a>
-          <a href="#slide1" class="btn btn-circle">
-            ❯
-          </a>
+    <div className="hero min-h-screen">
+      <div className="hero-content flex-col lg:flex-row-reverse">
+        <img src={banner1} className="max-w-md rounded-lg shadow-2xl" alt="" />
+        <div>
+          <h1 className="text-5xl font-bold">Your New Smile Starts Here</h1>
+          <p className="py-6">
+            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
+            excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
+            a id nisi.
+          </p>
         </div>
       </div>
     </div>

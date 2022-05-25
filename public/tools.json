@@ -1,0 +1,38 @@
+[
+  {
+    "_id": 1,
+    "name": "Hammer Drill/Driver",
+    "price": 321,
+    "minOrder": 50,
+    "quantity": 500,
+    "img": "https://i.ibb.co/8btwvtK/tool1.png",
+    "description": "The Bosch GWS18V-8 is an ergonomic angle grinder that combines portability, performance and best user comfort. Its brushless motor provides equivalent 8.0 amps of power and greater efficiency that maximizes runtime and productivity."
+  },
+  {
+    "_id": 2,
+    "name": "Hex Impact Driver",
+    "price": 280,
+    "minOrder": 50,
+    "quantity": 500,
+    "img": "https://i.ibb.co/8sYk4hT/tool2.png",
+    "description": "The Bosch GDR18V-1860C is an ideal tool for professional-grade fastening applications. The impact driver’s efficient, powerful brushless motor produces up to 1,860 In.-Lbs. of torque and 0-4,100 impacts per minute. In addition to three speed/torque settings this impact driver also features special modes to prevent work piece and fastener damage. "
+  },
+  {
+    "_id": 3,
+    "name": "Ergonomic Angle Grinder with Paddle Switch",
+    "price": 340,
+    "minOrder": 50,
+    "quantity": 500,
+    "img": "https://i.ibb.co/C9WcxtD/tool3.png",
+    "description": "This 4-1/2 In. ergonomic angle grinder features a narrow grip zone for all-day comfort and control, combined with a powerful 10-amp motor. The Bosch GWS10-450P angle grinder delivers results, producing up to 11,000 no-load rpm for maximum productivity in grinding and cutting applications. "
+  },
+  {
+    "_id": 4,
+    "name": "Rotary Hammer Kit",
+    "price": 450,
+    "minOrder": 50,
+    "quantity": 500,
+    "img": "https://i.ibb.co/tBZ841j/tool4.png",
+    "description": "This 18V SDS-max® 1-7/8 In. rotary hammer delivers corded-type performance for heavy-duty concrete drilling and chiseling jobs. The Bosch GBH18V-45C Hitman Rotary Hammer delivers 9.3 Ft.-Lbs. of impact energy (EPTA). That is unprecedented for a single-battery 18V SDS-max® 1-7/8 In. rotary hammer. It weighs 20.4 Lbs. (with included battery)"
+  }
+]
