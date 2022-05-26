@@ -25,6 +25,9 @@ const Navbar = () => {
       <li>
         <Link to="/addTool">AddTool</Link>
       </li>
+      <li>
+        <Link to="/manageTool">Manage Tool</Link>
+      </li>
     </>
   );
   return (
