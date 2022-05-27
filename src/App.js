@@ -4,6 +4,8 @@ import "./App.css";
 import AddTool from "./Pages/Dashboard/AddTool";
 import ManageTools from "./Pages/Dashboard/ManageTools";
 import Home from "./Pages/Home/Home";
+import Login from "./Pages/Login/Login";
+import Signup from "./Pages/Login/Signup";
 import Footer from "./Pages/Share/Footer";
 import Navbar from "./Pages/Share/Navbar";
 
@@ -15,8 +17,8 @@ function App() {
         <Route path="/" element={<Home></Home>}></Route>
         <Route path="addTool" element={<AddTool></AddTool>}></Route>
         <Route path="manageTool" element={<ManageTools></ManageTools>}></Route>
-        {/* <Route path="" element={}></Route>
-        <Route path="" element={}></Route> */}
+        <Route path="signup" element={<Signup></Signup>}></Route>
+        <Route path="login" element={<Login></Login>}></Route>
       </Routes>
       <Footer></Footer>
       <ToastContainer></ToastContainer>
