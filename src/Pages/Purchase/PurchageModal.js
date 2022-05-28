@@ -1,12 +1,36 @@
 import React from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { toast } from "react-toastify";
+import auth from "../../firebase.init";
 
 const PurchageModal = ({ purchaseItem, setPurchaseItem }) => {
   const { _id, name, minOrder, quantity } = purchaseItem;
+  const [user] = useAuthState(auth);
   const handlePurchase = (e) => {
     e.preventDefault();
     const orderQuantity = e.target.orderQuantity.value;
-    console.log(_id, name, orderQuantity);
-    setPurchaseItem(null);
+    // console.log(_id, name, orderQuantity);
+    const purchase = {
+      itemId: _id,
+      item: name,
+      user: user.email,
+      userName: user.displayName,
+      orderQuantity: e.target.orderQuantity.value,
+      phone: e.target.phone.value,
+      address: e.target.address.value,
+    };
+
+    fetch("http://localhost:5000/purchase", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(purchase),
+    })
+      .then((res) => res.json())
+      .then((inserted) => {
+        console.log(inserted);
+      });
   };
 
   return (
@@ -28,33 +52,35 @@ const PurchageModal = ({ purchaseItem, setPurchaseItem }) => {
             onSubmit={handlePurchase}
             className="grid grid-cols-1 gap-3 justify-items-center mt-2"
           >
+            <h4>
+              User Name:{" "}
+              <span className="text-black font-semibold">
+                {user?.displayName || ""}
+              </span>
+            </h4>
+            <h4>
+              User Email:{" "}
+              <span className="text-black font-semibold">
+                {user?.email || ""}
+              </span>
+            </h4>
+
             <input
-              name="name"
-              type="text"
-              readOnly
-              //   value={user?.displayName || ""}
-              className="input input-bordered w-full max-w-xs"
-            />
-            <input
-              name="email"
-              type="email"
-              readOnly
-              //   value={user?.email || ""}
-              className="input input-bordered w-full max-w-xs"
-            />
-            <input
+              required
               name="phone"
               type="text"
               placeholder="your phone number"
               className="input input-bordered w-full max-w-xs"
             />
             <input
+              required
               name="address"
               type="text"
-              placeholder="your phone address"
+              placeholder="your address"
               className="input input-bordered w-full max-w-xs"
             />
             <input
+              required
               name="orderQuantity"
               type="number"
               min={minOrder}

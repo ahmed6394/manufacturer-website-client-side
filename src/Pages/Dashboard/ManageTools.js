@@ -23,7 +23,7 @@ const ManageTools = () => {
   }
   return (
     <div>
-      <h2 className="text-2xl">Manage Doctors: {items.length}</h2>
+      <h2 className="text-2xl">Manage Tools: {items.length}</h2>
       <div class="overflow-x-auto">
         <table class="table w-full">
           <thead>

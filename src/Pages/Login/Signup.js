@@ -6,6 +6,7 @@ import {
   useCreateUserWithEmailAndPassword,
   useSendEmailVerification,
   useSignInWithGoogle,
+  useUpdateProfile,
 } from "react-firebase-hooks/auth";
 import Loading from "../Share/Loading";
 
@@ -15,7 +16,8 @@ const Signup = () => {
   //signup with email and passwors
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
-
+  // update profile
+  const [updateProfile, updating, updateError] = useUpdateProfile(auth);
   //sending varification mail
   const [sendEmailVerification, sending, error1] =
     useSendEmailVerification(auth);
@@ -29,17 +31,21 @@ const Signup = () => {
   } = useForm();
 
   let signInError;
-  if (error || gError || error1) {
+  if (error || gError || error1 || updateError) {
     signInError = (
       <p className="text-red-600">
         <small>
-          Error: {error?.message || gError?.message || error1?.codemessage}
+          Error:{" "}
+          {error?.message ||
+            gError?.message ||
+            error1?.codemessage ||
+            updateError?.codemessage}
         </small>
       </p>
     );
   }
 
-  if (loading || gLoading || sending) {
+  if (loading || gLoading || sending || updating) {
     return <Loading></Loading>;
   }
   if (user || gUser) {
@@ -48,6 +54,8 @@ const Signup = () => {
   const onSubmit = async (data) => {
     await createUserWithEmailAndPassword(data.email, data.password);
     await sendEmailVerification(data.email);
+    await updateProfile({ displayName: data.name });
+    alert("Updated profile");
   };
   return (
     <div className="flex justify-center items-center h-screen">
@@ -154,7 +162,7 @@ const Signup = () => {
           </form>
           <p>
             <small>
-              Already have an account in Doctors Portal?{" "}
+              Already have an account in ToolBox?{" "}
               <Link className="text-primary" to="/login">
                 Please Login
               </Link>
