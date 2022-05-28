@@ -4,15 +4,16 @@ import { toast } from "react-toastify";
 import auth from "../../firebase.init";
 
 const PurchageModal = ({ purchaseItem, setPurchaseItem }) => {
-  const { _id, name, minOrder, quantity } = purchaseItem;
+  const { _id, name, minOrder, quantity, price } = purchaseItem;
   const [user] = useAuthState(auth);
   const handlePurchase = (e) => {
     e.preventDefault();
-    const orderQuantity = e.target.orderQuantity.value;
+    // const orderQuantity = e.target.orderQuantity.value;
     // console.log(_id, name, orderQuantity);
     const purchase = {
       itemId: _id,
       item: name,
+      price: price,
       user: user.email,
       userName: user.displayName,
       orderQuantity: e.target.orderQuantity.value,
@@ -28,8 +29,13 @@ const PurchageModal = ({ purchaseItem, setPurchaseItem }) => {
       body: JSON.stringify(purchase),
     })
       .then((res) => res.json())
-      .then((inserted) => {
-        console.log(inserted);
+      .then((data) => {
+        console.log(data);
+        if (data.success) {
+          toast("Order Successful");
+        }
+
+        setPurchaseItem(null);
       });
   };
 
