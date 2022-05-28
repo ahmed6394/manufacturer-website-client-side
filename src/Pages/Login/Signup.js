@@ -1,6 +1,4 @@
 import React from "react";
-import { useForm } from "react-hook-form";
-import { Link, useNavigate } from "react-router-dom";
 import auth from "../../firebase.init";
 import {
   useCreateUserWithEmailAndPassword,
@@ -8,7 +6,10 @@ import {
   useSignInWithGoogle,
   useUpdateProfile,
 } from "react-firebase-hooks/auth";
+import { useForm } from "react-hook-form";
 import Loading from "../Share/Loading";
+import { Link, useNavigate } from "react-router-dom";
+import useToken from "../../hook/useToken";
 
 const Signup = () => {
   //login with google
@@ -16,11 +17,14 @@ const Signup = () => {
   //signup with email and passwors
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth);
+
   // update profile
   const [updateProfile, updating, updateError] = useUpdateProfile(auth);
+
   //sending varification mail
   const [sendEmailVerification, sending, error1] =
     useSendEmailVerification(auth);
+  const [token] = useToken(gUser || user);
 
   const navigate = useNavigate();
 
@@ -30,32 +34,35 @@ const Signup = () => {
     handleSubmit,
   } = useForm();
 
+  if (token) {
+    navigate("/");
+  }
+
   let signInError;
-  if (error || gError || error1 || updateError) {
+  if (error || gError || updateError || error1) {
     signInError = (
       <p className="text-red-600">
         <small>
           Error:{" "}
           {error?.message ||
             gError?.message ||
-            error1?.codemessage ||
-            updateError?.codemessage}
+            updateError?.message ||
+            error1?.codemessage}
         </small>
       </p>
     );
   }
-
-  if (loading || gLoading || sending || updating) {
+  if (loading || gLoading || updating || sending) {
     return <Loading></Loading>;
   }
-  if (user || gUser) {
-    navigate("/");
-  }
+
   const onSubmit = async (data) => {
+    // console.log(data);
     await createUserWithEmailAndPassword(data.email, data.password);
     await sendEmailVerification(data.email);
     await updateProfile({ displayName: data.name });
     alert("Updated profile");
+    // navigate("/appointment");
   };
   return (
     <div className="flex justify-center items-center h-screen">
@@ -162,7 +169,7 @@ const Signup = () => {
           </form>
           <p>
             <small>
-              Already have an account in ToolBox?{" "}
+              Already have an account in Doctors Portal?{" "}
               <Link className="text-primary" to="/login">
                 Please Login
               </Link>
