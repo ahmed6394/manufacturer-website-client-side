@@ -17,7 +17,7 @@ const AddReview = () => {
     };
 
     // send to your database
-    fetch("http://localhost:5000/reviews", {
+    fetch("https://calm-lake-90811.herokuapp.com/reviews", {
       method: "POST",
       headers: {
         "content-type": "application/json",

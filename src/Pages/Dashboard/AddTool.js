@@ -37,7 +37,7 @@ const AddTool = () => {
             img: img,
           };
           // send to your database
-          fetch("http://localhost:5000/tools", {
+          fetch("https://calm-lake-90811.herokuapp.com/tools", {
             method: "POST",
             headers: {
               "content-type": "application/json",

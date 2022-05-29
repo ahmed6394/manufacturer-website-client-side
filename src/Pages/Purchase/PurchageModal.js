@@ -21,7 +21,7 @@ const PurchageModal = ({ purchaseItem, setPurchaseItem }) => {
       address: e.target.address.value,
     };
 
-    fetch("http://localhost:5000/purchase", {
+    fetch("https://calm-lake-90811.herokuapp.com/purchase", {
       method: "POST",
       headers: {
         "content-type": "application/json",

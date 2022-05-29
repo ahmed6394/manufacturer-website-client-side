@@ -11,7 +11,7 @@ const ManageTools = () => {
     isLoading,
     refetch,
   } = useQuery("items", () =>
-    fetch("http://localhost:5000/tools", {
+    fetch("https://calm-lake-90811.herokuapp.com/tools", {
       /* headers: {
         // authorization: `Bearer ${localStorage.getItem("accessToken")}`,
       }, */

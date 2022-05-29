@@ -51,7 +51,7 @@ const Portfolio = () => {
             </li>
             <li>
               <a href="https://shamso-electronics-4b223c.netlify.app/dashboard">
-                Sham Electronics
+                Shams Electronics
               </a>
             </li>
           </p>
