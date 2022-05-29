@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { toast } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 
 const AddTool = () => {
   const {
@@ -60,7 +60,7 @@ const AddTool = () => {
 
   return (
     <div>
-      <h1 class="text-5xl font-bold text-primary text-center">Add a tool</h1>
+      <h1 class="text-2xl font-bold text-primary text-center">Add tool</h1>
 
       <form onSubmit={handleSubmit(onSubmit)} className="my-10">
         <div className="form-control w-full max-w-xs mx-auto">
@@ -89,7 +89,7 @@ const AddTool = () => {
             pattern="[0-9]*"
             placeholder="Price per unit"
             className="input input-bordered max-w-xs"
-            {...register("pric", {
+            {...register("price", {
               required: {
                 value: true,
                 message: "Price is Required",

@@ -169,7 +169,7 @@ const Signup = () => {
           </form>
           <p>
             <small>
-              Already have an account in Doctors Portal?{" "}
+              Already have an account in ToolBox?{" "}
               <Link className="text-primary" to="/login">
                 Please Login
               </Link>

@@ -5,7 +5,7 @@ import award2 from "../../images/award2.jpg";
 const Achievements = () => {
   return (
     <div className="my-12">
-      <h1 class="text-5xl font-bold text-primary text-center">
+      <h1 class="text-3xl font-bold text-primary text-center my-3">
         Our Achievements
       </h1>
       <div className="grid grid-cols-2 gap-5 content-center ">
