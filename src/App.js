@@ -18,6 +18,8 @@ import MyProfile from "./Pages/Dashboard/MyProfile";
 import Users from "./Pages/Dashboard/Users";
 import RequireAdmin from "./Pages/Login/RequireAdmin";
 import NotFound from "./Pages/Share/NotFound";
+import Blogs from "./Pages/Blogs";
+import Portfolio from "./Pages/Portfolio";
 
 function App() {
   return (
@@ -69,6 +71,8 @@ function App() {
             }
           ></Route>
         </Route>
+        <Route path="portfolio" element={<Portfolio></Portfolio>}></Route>
+        <Route path="blogs" element={<Blogs></Blogs>}></Route>
         <Route path="signup" element={<Signup></Signup>}></Route>
         <Route path="login" element={<Login></Login>}></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>

@@ -27,10 +27,10 @@ const Navbar = () => {
         <Link to="/dashboard">Dashboard</Link>
       </li>
       <li>
-        <Link to="/contact">Blogs</Link>
+        <Link to="/blogs">Blogs</Link>
       </li>
       <li>
-        <Link to="/about">My Portfolio</Link>
+        <Link to="/portfolio">My Portfolio</Link>
       </li>
       <li>
         {!user ? (
