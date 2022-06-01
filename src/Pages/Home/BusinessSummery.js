@@ -6,7 +6,7 @@ const BusinessSummery = () => {
       <h3 className="text-3xl font-bold text-primary text-center my-3">
         Business Overview
       </h3>
-      <div class="stats shadow grid grid-cols-3 gap-4 content-center px-12">
+      <div class="stats stats-vertical lg:stats-horizontal shadow px-12">
         <div class="stat">
           <div class="stat-title">Annual Revenue</div>
           <div class="stat-value text-primary">$1.2M</div>
@@ -36,8 +36,18 @@ const BusinessSummery = () => {
 
         <div class="stat">
           <div class="stat-figure text-secondary"></div>
-          <div class="stat-value">96%</div>
-          <div class="stat-title">Positive Feedback</div>
+          <div class="stat-value">85%</div>
+          <div class="stat-title">Available Spareparts</div>
+        </div>
+        <div class="stat">
+          <div class="stat-figure text-secondary"></div>
+          <div class="stat-value">60%</div>
+          <div class="stat-title">Avarage Anual Growth</div>
+        </div>
+        <div class="stat">
+          <div class="stat-figure text-secondary"></div>
+          <div class="stat-value">100K +</div>
+          <div class="stat-title">Consumer</div>
         </div>
       </div>
     </div>

@@ -8,7 +8,7 @@ const Achievements = () => {
       <h1 class="text-3xl font-bold text-primary text-center my-3">
         Our Achievements
       </h1>
-      <div className="grid grid-cols-2 gap-5 content-center ">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 content-center ">
         <div class="card bg-base-100 shadow-xl flex-col lg:flex-row">
           <figure>
             <img src={award1} alt="" class="max-w-sm rounded-lg shadow-2xl" />
